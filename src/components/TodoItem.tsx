@@ -4,13 +4,14 @@ interface TodoItemProps {
     id: string,
     title: string,
     completed: boolean,
+    style?: React.CSSProperties,
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({id, title, completed}) => {
+const TodoItem = ({id, title, completed, style ={}}: TodoItemProps) => {
     return (
-        <li>
+        <li style={{color: 'red', backgroundColor: 'white', ...style}}>
             <input type='checkbox' checked={completed}/>
-            <span>title</span>
+            <span>{title}</span>
             <span>&times;</span>
         </li>
     );
