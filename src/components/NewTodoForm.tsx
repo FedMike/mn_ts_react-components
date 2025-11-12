@@ -16,7 +16,7 @@ const NewTodoForm = ({handleClick}: NewTodoFormProps) => {
     return (
         <>
             <input type="text" placeholder="new todo" ref={inputRef}/>
-            <button onClick={handleClick}>Add todo</button>
+            <button onClick={onClick}>Add todo</button>
         </>
     )
 }
