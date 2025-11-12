@@ -1,25 +1,24 @@
 import React, {useState} from 'react';
 import './App.css';
+import {Todo} from './types';
 import Todoitem from "./components/TodoItem";
 import NewTodoForm from "./components/NewTodoForm";
 
-type ITodo = {
-  id: string,
-  title: string,
-  completed: boolean,
-}
-
 function App() {
   const [text, setText] = useState('');
-  const [todos, setTodos] = useState<string[]>([]);
-  const [] = useState<ITodo | null>(null);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
   }
 
   const addTodo = () => {
-    setTodos([text, ...todos]);
+    const newTodo: Todo = {
+      id: new Date().toString(),
+      title: text,
+      completed: false,
+    }
+    setTodos([newTodo, ...todos]);
     setText('');
   }
 
